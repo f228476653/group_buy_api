@@ -1,0 +1,28 @@
+
+version: '3.7'
+
+services:
+  group-buy-api:
+    container_name: group_buy_backend
+    build: ./
+    command: npm start
+    working_dir: /usr/src/group-buy-api
+    environment:
+      POSTGRES_URI: postgres://anita:1qaz@WSX@postgres:5432/group-buy-docker
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/usr/src/group-buy-api
+    links:
+      - postgres
+
+  postgres:
+    environment:
+      POSTGRES_PASSWORD: 1qaz@WSX
+      POSTGRES_USER: anita
+      POSTGRES_DB: group-buy-docker
+      POSTGRES_HOST: postgres
+    ports:
+      - 5432:5432
+    build: ./postgres
+
