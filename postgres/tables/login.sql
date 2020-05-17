@@ -1,4 +1,9 @@
-BEGIN TRANSACTION;
+IF (!EXISTS (SELECT * 
+                 FROM INFORMATION_SCHEMA.TABLES 
+                 WHERE TABLE_SCHEMA = 'public' 
+                 AND  TABLE_NAME = 'login'))
+BEGIN
+    BEGIN TRANSACTION;
 
 create table login
 (
@@ -16,3 +21,4 @@ alter table login
 
 
 COMMIT; 
+END

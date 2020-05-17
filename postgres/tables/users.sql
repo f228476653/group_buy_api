@@ -1,3 +1,9 @@
+IF (!EXISTS (SELECT * 
+                 FROM INFORMATION_SCHEMA.TABLES 
+                 WHERE TABLE_SCHEMA = 'public' 
+                 AND  TABLE_NAME = 'users'))
+BEGIN
+
 BEGIN TRANSACTION;
 
 CREATE TABLE users (
@@ -11,3 +17,4 @@ CREATE TABLE users (
 );
 
 COMMIT;
+END

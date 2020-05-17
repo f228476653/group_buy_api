@@ -9,12 +9,15 @@ services:
     working_dir: /usr/src/group-buy-api
     environment:
       POSTGRES_URI: postgres://anita:1qaz@WSX@postgres:5432/group-buy-docker
+      REDIS_URI: redis://redis:6379
+      JWT: Anitaaaaaa
     ports:
       - "3000:3000"
     volumes:
       - ./:/usr/src/group-buy-api
     links:
       - postgres
+      - redis
 
   postgres:
     environment:
@@ -25,4 +28,14 @@ services:
     ports:
       - 5432:5432
     build: ./postgres
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+
+
+
+
+      
+
 
