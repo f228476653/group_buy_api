@@ -18,7 +18,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "install": "^0.13.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "knex": "^0.21.0",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
